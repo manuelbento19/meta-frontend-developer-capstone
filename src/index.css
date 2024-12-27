@@ -3,10 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
+  font-family: Karla, sans-serif;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: #495E57;
 }
 
 header {
