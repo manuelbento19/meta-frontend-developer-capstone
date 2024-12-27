@@ -1,9 +1,10 @@
+import AppProvider from "./provider";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Meta Frontend Developer Capstone</h1>
-    </div>
+    <>
+      <AppProvider/>
+    </>
   );
 }
 
