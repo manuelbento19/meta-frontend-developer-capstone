@@ -61,70 +61,76 @@ export const Form = () => {
     }, []);
 
     return (
-      <form onSubmit={handleFormSubmit}>
-        <div className="form-field">
-          <label htmlFor="booking-date">Date</label>
-          <input 
-            type="date" 
-            id="booking-date" 
-            name="booking-date" 
-            min={minimumDate} 
-            required={true}
-            onChange={onFieldChange}
-          />
-          {!availableFields.date && <p data-testid="error-message">{Validator.errorMessages.date}</p>}
-        </div>
-        <div className="form-field">
-          <label htmlFor="booking-time">Time</label>
-          <select 
-            id="booking-time" 
-            name="booking-time" 
-            required={true}
-            onChange={onFieldChange}
-          >
-            {availableTimes.map(times => 
-              <option data-testid="booking-time-option" value={times} key={times}>
-                {times}
-              </option>
-            )}
-          </select>
-          {!availableFields.time && <p data-testid="error-message">{Validator.errorMessages.time}</p>}
-        </div>
-        <div className="form-field">
-          <label htmlFor="booking-number-guests">Number of guests</label>
-          <input 
-            type="number" 
-            id="booking-number-guests" 
-            name="booking-number-guests" 
-            min={1} 
-            max={10} 
-            onChange={onFieldChange}
-          />
-          {!availableFields.guests && <p data-testid="error-message">{Validator.errorMessages.guests}</p>}
-        </div>
-        <div className="form-field">
-          <label htmlFor="booking-occasion">Occasion</label>
-          <select 
-            id="booking-occasion" 
-            name="booking-occasion" 
-            required={true} 
-            onChange={onFieldChange}
-          >
-            {occasions.map(occasion => 
-              <option data-testid="booking-occasion-option" value={occasion} key={occasion}>
-                {occasion}
-              </option>
-            )}
-          </select>
-          {!availableFields.occasion && <p data-testid="error-message">{Validator.errorMessages.occasion}</p>}
-        </div>
-        <button 
-          className="button-primary" 
-          type="submit" 
-          disabled={!availableFields.allFieldsValid}
-        >
-          Make your reservation
-        </button>
-      </form>
+        <form onSubmit={handleFormSubmit}>
+            <div className="form-field">
+            <label htmlFor="booking-date">Date</label>
+            <input 
+                type="date" 
+                id="booking-date" 
+                name="booking-date" 
+                aria-label="Booking date"
+                aria-required="true"
+                tabindex="1"
+                onChange={onFieldChange}
+                min={minimumDate}
+            />
+            {!availableFields.date && <p data-testid="error-message" aria-invalid="true">{Validator.errorMessages.date}</p>}
+            </div>
+            <div className="form-field">
+            <label htmlFor="booking-time">Time</label>
+            <select 
+                id="booking-time" 
+                name="booking-time" 
+                aria-label="Booking time"
+                role="combobox"
+                tabindex="2"
+                onChange={onFieldChange}
+            >
+                {availableTimes.map(times => 
+                <option data-testid="booking-time-option" value={times} key={times}>
+                    {times}
+                </option>
+                )}
+            </select>
+            {!availableFields.time && <p data-testid="error-message" aria-invalid="true">{Validator.errorMessages.time}</p>}
+            </div>
+            <div className="form-field">
+            <label htmlFor="booking-number-guests">Number of guests</label>
+            <input 
+                type="number" 
+                id="booking-number-guests" 
+                name="booking-number-guests" 
+                aria-label="Number of guests"
+                tabindex="3"
+                onChange={onFieldChange}
+            />
+            {!availableFields.guests && <p data-testid="error-message" aria-invalid="true">{Validator.errorMessages.guests}</p>}
+            </div>
+            <div className="form-field">
+            <label htmlFor="booking-occasion">Occasion</label>
+            <select 
+                id="booking-occasion" 
+                name="booking-occasion" 
+                aria-label="Occasion"
+                role="combobox"
+                tabindex="4"
+                onChange={onFieldChange}
+            >
+                {occasions.map(occasion => 
+                <option data-testid="booking-occasion-option" value={occasion} key={occasion}>
+                    {occasion}
+                </option>
+                )}
+            </select>
+            {!availableFields.occasion && <p data-testid="error-message" aria-invalid="true">{Validator.errorMessages.occasion}</p>}
+            </div>
+            <button 
+            className="button-primary" 
+            type="submit" 
+            disabled={!availableFields.allFieldsValid}
+            >
+            Make your reservation
+            </button>
+        </form>
     );
   };
