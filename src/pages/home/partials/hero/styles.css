@@ -1,9 +1,9 @@
-.hero {
+#hero {
   padding-top: 1.875rem;
   background-color: #495E57;
 }
 
-.hero .container {
+#hero .container {
   grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
   margin-bottom: 9.375rem;
@@ -49,7 +49,7 @@
 /*-- Media queries ------------------------------------------------------*/
 
 @media (max-width: 792px) {
-.hero .container {
+#hero .container {
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
 }

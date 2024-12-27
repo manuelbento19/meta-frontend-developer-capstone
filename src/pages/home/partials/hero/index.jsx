@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import restaurantFoodImage from '../../../../assets/restaurant-food.jpg';
+import restaurant from '../../../../assets/restaurant-food.jpg';
 import './styles.css';
 import * as Consts from '../../../../constants';
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section id="hero">
       <div className="container grid">
         <div className="hero-information">
           <h1>Little Lemon</h1>
@@ -20,7 +20,7 @@ export default function Hero() {
         </div>
         <img 
           className="hero-image" 
-          src={restaurantFoodImage} 
+          src={restaurant} 
           alt="Restaurant food" 
         />
       </div>
