@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../../../utils/api';
 import { Validator } from '../../../../utils/validator';
+import { useNavigate } from 'react-router-dom';
+import { pages } from '../../../../constants';
 
 const occasions = ['Birthday', 'Anniversary'];
 
 export const Form = () => {
+    const navigateTo = useNavigate();
     const minimumDate = new Date().toISOString().split('T')[0];
     const [availableTimes, setAvailableTimes] = useState([]);
     const [availableFields, setAvailableFields] = useState({
@@ -47,7 +50,9 @@ export const Form = () => {
         allFieldsValid: true
       })
       api.reserve(data).then(data=>{
-        console.log(data);
+        navigateTo(pages.confirmedBooking.path,{
+            state: data
+        });
       });
     };
 
