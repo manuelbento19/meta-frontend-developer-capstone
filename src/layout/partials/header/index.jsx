@@ -4,9 +4,9 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logoImage from '../../../assets/logo.png';
 import './styles.css';
-import { pages } from '../../../constants';
+import * as Consts from '../../../constants';
 
-const navLinks = Object.entries(pages).map(([key, value]) => value);
+const navLinks = Object.entries(Consts.pages).filter(([_key, value]) => value.anchorable).map(([_key, value]) => value);
 
 export default function Header() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
